@@ -4,4 +4,13 @@
   <%= text_field_tag :query %>
   <%= submit_tag "Search Github!" %>
 <% end %>
-
+<% if !@callback.nil? %>
+<ul>
+  <% @callback.each do |data| %>
+    <li><%= data["name"] %><br>
+        <%= link_to data["html_url"], data["html_url"] %><br>
+        <%= data["description"] %>
+    </li>
+  <% end %>
+</ul>
+  <% end %>
